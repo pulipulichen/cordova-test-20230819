@@ -8,6 +8,6 @@
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <resource-file src="my-release-key.keystore" target="/app/my-release-key.keystore" />
+    <resource-file src="my-release-key.keystore" target="/my-release-key.keystore" />
     
 </widget>

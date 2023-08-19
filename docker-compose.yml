@@ -6,8 +6,9 @@ services:
     # command: ["server", "/config.py"]
     # ports: ["127.0.0.1:7465:7465"]
     environment:
-    - APP_ID=com.example.hello
-    - APP_NAME=HelloWorld
+    - APP_ID=com.example.hello20230820.a0057
+    - APP_NAME=HelloWorldOKKK
     tty: true
     volumes:
       - "./app:/app"
+      - "./output:/output"
