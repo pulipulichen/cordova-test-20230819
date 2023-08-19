@@ -1,0 +1,28 @@
+{
+  "name": "cordova-test-20230819",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker-compose up --build",
+    "up": "docker-compose up --build",
+    "build": "docker-compose build",
+    "bash": "docker-compose run app bash"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://pulipuli.chen@gmail.com@github.com/pulipulichen/Docker-Python-Taguette.git"
+  },
+  "keywords": [
+    "Machine Learning"
+  ],
+  "author": "Pulipuli Chen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pulipulichen/Docker-Python-Taguette"
+  },
+  "homepage": "https://github.com/pulipulichen/Docker-Python-Taguette#readme",
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}

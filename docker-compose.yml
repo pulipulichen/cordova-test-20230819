@@ -1,0 +1,13 @@
+version: "2.4"
+services:
+  app:
+    # image: quay.io/remram44/taguette
+    build: .
+    # command: ["server", "/config.py"]
+    # ports: ["127.0.0.1:7465:7465"]
+    environment:
+    - APP_ID=com.example.hello
+    - APP_NAME=HelloWorld
+    tty: true
+    volumes:
+      - "./app:/app"
