@@ -8,4 +8,9 @@ WORKDIR /
 
 CMD [ "bash", "/startup.sh" ]
 
+RUN apt-get update
+RUN apt-get install -y git
+
+RUN cordova telemetry off
+
 COPY docker-build/startup.sh /startup.sh

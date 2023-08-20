@@ -1,13 +1,86 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.example.hello" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HelloWorld</name>
+<widget id="pgb_share_to_shortcut.pulipuli.info" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Share To Shortcut</name>
     <description>Sample Apache Cordova App</description>
     <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
         Apache Cordova Team
     </author>
     <content src="index.html" />
+
+    <icon src="www/img/logo.png"/>
+    <preference name="BackgroundColor" value="0x00000000"/>
+
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <resource-file src="my-release-key.keystore" target="/my-release-key.keystore" />
-    
+
+    <platform name="android">
+        <config-file parent="/manifest" target="AndroidManifest.xml" xmlns:android="http://schemas.android.com/apk/res/android">
+            <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+            <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+            <uses-permission android:name="android.permission.INSTALL_SHORTCUT" />
+            <uses-permission android:name="com.teslacoilsw.launcher.permission.INSTALL_SHORTCUT" />
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file> 
+        <edit-config file="AndroidManifest.xml"
+                     target="/manifest/application"
+                     mode="merge">
+            <application android:theme="@android:style/Theme.Translucent" android:excludeFromRecents="true"></application>
+        </edit-config>
+        <edit-config file="AndroidManifest.xml"
+                     target="/manifest/application/activity"
+                     mode="merge">
+            <activity android:theme="@android:style/Theme.Translucent" android:excludeFromRecents="true"></activity>
+        </edit-config>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application/activity">
+            <intent-filter android:label="📌 Shortcut">
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.SEND" />
+                <!-- <action android:name="android.intent.action.PROCESS_TEXT" /> -->
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+            <intent-filter android:label="📌 Shortcut">
+                <action android:name="android.intent.action.VIEW"/>
+                <data
+                        android:scheme="file"
+                        android:host="*"
+                        android:pathPattern=".*\.pdf"/>
+                <data
+                        android:scheme="file"
+                        android:host="*"
+                        android:pathPattern=".*\.PDF"/>
+            </intent-filter>
+            <intent-filter android:label="📌 Shortcut">
+                <action
+					android:name="android.intent.action.VIEW"/>
+				<action
+					android:name="android.intent.action.EDIT"/>
+				<category
+					android:name="android.intent.category.DEFAULT"/>
+				<data
+					android:mimeType="application/pdf"/>
+            </intent-filter>
+            <intent-filter android:label="📌 Shortcut">
+                <action
+					android:name="android.intent.action.VIEW"/>
+				<category
+					android:name="android.intent.category.DEFAULT"/>
+				<data
+					android:mimeType="resource/folder"/>
+            </intent-filter>
+            <intent-filter android:label="📌 Shortcut">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <!-- https://build.phonegap.com/apps/3228957/download/android -->
+                <data android:scheme="https" android:host="build.phonegap.com" android:pathPattern="/apps/.*/download/android" />
+            </intent-filter>
+        </config-file>
+    </platform>
 </widget>

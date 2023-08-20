@@ -26,4 +26,10 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+
+    window.plugins.intent.getCordovaIntent(function (Intent) {
+        alert(JSON.stringify(Intent))
+    }, function (e) {
+        alert('error:' + JSON.stringify(e))
+    });
 }
